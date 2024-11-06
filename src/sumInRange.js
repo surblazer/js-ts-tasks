@@ -5,5 +5,10 @@
  * @returns {number}
  */
 module.exports.sumInRange = function sumInRange(start, end) {
+  let sum = 0;
+  for (let i = Math.min(start, end); i <= Math.max(start, end); i++) {
+    sum += i;
+  }
+  return sum;
   throw new Error('Not implemented');
 };

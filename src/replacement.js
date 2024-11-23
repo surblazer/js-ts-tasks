@@ -8,5 +8,21 @@
  * @returns {Array<number>}
  */
 module.exports.replacement = function replacement(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  let numArr = [];
+  const digitsType = (digit) => {
+    if (digit === 1) {
+      return 1;
+    } else if (digit === 2) {
+      return 2;
+    } else if (digit === 3) {
+      return 3;
+    }
+    return 4;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    const numberDig = Math.abs(arr[i]).toString().length;
+    numArr.push(digitsType(numberDig));
+  }
+  return numArr;
 };

@@ -1,5 +1,51 @@
 class User {
   // Your code for class User here
+  #firstName;
+  #secondName;
+  #age;
+  constructor(firstName, secondName, age) {
+    if (typeof firstName !== 'string') {
+      throw new Error('First name must be a string');
+    }
+    if (typeof secondName !== 'string') {
+      throw new Error('Second name must be a string');
+    }
+    if (typeof age !== 'number') {
+      throw new Error('Age must be a number');
+    }
+
+    this.firstName = firstName;
+    this.secondName = secondName;
+    this.age = age;
+  }
+
+  get age() {
+    return this.#age;
+  }
+
+  set age(age) {
+    this.#age = age;
+  }
+
+  set firstName(firstName) {
+    this.#firstName = firstName;
+  }
+
+  set secondName(secondName) {
+    this.#secondName = secondName;
+  }
+
+  get name() {
+    return `${this.#firstName} ${this.#secondName}`;
+  }
+
+  introduce() {
+    return `My name is ${this.name}, I'm ${this.#age}`;
+  }
+
+  celebrateBirthday() {
+    this.age++
+  }
 }
 
 /**
@@ -16,7 +62,7 @@ module.exports.User = User;
  * @returns {User}
  */
 module.exports.createUser = function (firstName, secondName, age) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+   return new User(firstName, secondName, age);
 };
 
 /**
@@ -25,7 +71,9 @@ module.exports.createUser = function (firstName, secondName, age) {
  * @returns {Array<User>}
  */
 module.exports.createUsers = function (data) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  return data.map(function(user) {
+    return new User(user.firstName, user.secondName, user.age);
+  });
 };
 
 /**
@@ -35,7 +83,7 @@ module.exports.createUsers = function (data) {
  * @returns {Array<User>}
  */
 module.exports.findUsersByAge = function (users, age) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  return users.filter(user => user.age === age);
 };
 
 /**
@@ -44,7 +92,9 @@ module.exports.findUsersByAge = function (users, age) {
  * @returns {function(*): *[]}
  */
 module.exports.createUsersSortFn = function (TestUtils) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  return function (users) {
+    return users.sort(TestUtils.sortComparatorByAge);
+  }
 };
 
 /**
@@ -53,5 +103,10 @@ module.exports.createUsersSortFn = function (TestUtils) {
  * @return {Array<User>}
  */
 module.exports.celebrate = function (users) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  users.forEach((user, index) => {
+    if (index % 2 === 0) {
+      user.celebrateBirthday();
+    }
+  });
+  return users;
 };

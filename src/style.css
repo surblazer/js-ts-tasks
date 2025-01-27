@@ -1,4 +1,104 @@
 /* your css code here  */
+header {
+  font-family: "JetBrains Mono", "Roboto Thin", system-ui;
+  color: white;
+  margin-top: 50px;
+  margin-left: 8px;
+  text-align: left;
+}
+
+.user-name {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.profile-stats {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  text-align: center;
+}
+
+.profile-info {
+  margin-bottom: 20px;
+}
+
+.profile-info .website a {
+  color: #919bb5;
+  text-decoration: none;
+}
+
+.profile-info .bio {
+  color: dimgrey;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.buttons button {
+  padding: 8px 28px;
+  border: 1px solid dimgrey;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+}
+
+.buttons .follow {
+  background-color: dodgerblue;
+  border: none;
+}
+
+.stories {
+  display: flex;
+  gap: 13px;
+  padding: 15px;
+}
+
+.stories .image {
+  width: 18%;
+  height: 18%;
+}
+
+.stories .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 3px solid dimgrey;
+}
+
+.stories .image .highlight-text {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  font-family: "JetBrains Mono", "Roboto Thin", system-ui;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.gallery .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 body {
   background: linear-gradient(45deg, #FFD6C3, #FCB5FF, #BEC6FF);
